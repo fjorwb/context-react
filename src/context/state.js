@@ -2,19 +2,11 @@ import { useState } from 'react'
 import { Context } from './context'
 
 const State = ({ children }) => {
-  const [theme, setTheme] = useState('dark')
+  const [isDark, setIsDark] = useState(true)
   const [counter, setCounter] = useState(0)
 
-  // const toggleTheme = () => {
-  //   setTheme(theme === 'dark' ? 'light' : 'dark')
-  // }
-
-  const light = () => {
-    setTheme('light')
-  }
-
-  const dark = () => {
-    setTheme('dark')
+  const toggleTheme = () => {
+    setIsDark(!isDark)
   }
 
   const increment = () => {
@@ -30,7 +22,7 @@ const State = ({ children }) => {
   }
 
   return (
-    <Context.Provider value={{ counter, increment, decrement, reset, theme: [theme], light, dark }}>
+    <Context.Provider value={{ counter, increment, decrement, reset, isDark, toggleTheme }}>
       {children}
     </Context.Provider>
   )

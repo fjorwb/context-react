@@ -11,24 +11,25 @@ import Theme from './components/Theme'
 const themes = {
   dark: {
     background: '#000000',
-    color: '#ffffff',
+    color: '#FFFFFF',
   },
   light: {
-    background: '#ffffff',
+    background: '#FFFFFF',
     color: '#000000',
   },
 }
 
 function App() {
-  const { theme } = useContext(Context)
+  const { isDark } = useContext(Context)
 
-  const background = themes[theme].background
-  const color = themes[theme].color
+  const background = isDark ? themes.dark.background : themes.light.background
+  const color = isDark ? themes.dark.color : themes.light.color
 
   return (
     <div
       className='App'
       style={{ background, color }}
+      // data-style={theme}
     >
       <div className='container'>
         <Theme />
