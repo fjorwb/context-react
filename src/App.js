@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { useContext } from 'react'
+
+// import State from './context/state'
+import { Context } from './context/context'
+
+import Counter from './components/Counter'
+import Theme from './components/Theme'
+
+const themes = {
+  dark: {
+    background: '#000000',
+    color: '#ffffff',
+  },
+  light: {
+    background: '#ffffff',
+    color: '#000000',
+  },
 }
 
-export default App;
+function App() {
+  const { theme } = useContext(Context)
+
+  const background = themes[theme].background
+  const color = themes[theme].color
+
+  return (
+    <div
+      className='App'
+      style={{ background, color }}
+    >
+      <div className='container'>
+        <Theme />
+        <h1>React Context</h1>
+        <Counter />
+      </div>
+    </div>
+  )
+}
+
+export default App
