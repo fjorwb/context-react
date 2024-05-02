@@ -9,9 +9,26 @@ function Counter() {
     <div className='counter'>
       <h2>Counter</h2>
       <p>{counter}</p>
-      <button onClick={() => increment()}>+</button>
-      <button onClick={() => decrement()}>-</button>
-      <button onClick={() => reset()}>reset</button>
+      <div className='buttons-container'>
+        <button
+          className='btn'
+          onClick={() => increment()}
+        >
+          +
+        </button>
+        <button
+          className='btn'
+          onClick={() => decrement()}
+        >
+          -
+        </button>
+        <button
+          className='btn'
+          onClick={() => reset()}
+        >
+          reset
+        </button>
+      </div>
     </div>
   )
 }
